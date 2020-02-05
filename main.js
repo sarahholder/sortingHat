@@ -20,6 +20,7 @@ const sortStudent = () => {
     studentPrinter(arrayOfStudents);
 };
 let studentId = 0; 
+
 const createUniqueId = (studentCard) => {
 
 if (studentCard.id == null){
@@ -37,7 +38,8 @@ const printToDom = (divId, textToPrint) => {
   const studentPrinter = (names) => {
     let domString = '';
     for(let i = 0; i< names.length; i++){
-      domString += '<div class="col-md-6 col-lg-4 card-separation">'
+      domString += ``
+      domString += `<div class="card-group col-md-6 col-lg-4">`;
       domString += '<div class="card">';
       domString += '  <div class="card-body">';
       domString += `    <h5 class="card-title">${names[i].name}</h5>`;
