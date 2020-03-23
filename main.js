@@ -1,6 +1,5 @@
 
-const arrayOfStudents = []
-
+const arrayOfStudents = [];
 
 const hideJumbo = () => {
     document.getElementById('hogwartsJumbo').classList.add('invisible');
@@ -34,15 +33,17 @@ const printToDom = (divId, textToPrint) => {
     document.getElementById('firstYearsName').value = "";
 
   };
-  const studentPrinter = (names) => {
+const studentPrinter = (names) => {
     let domString = '';
     for(let i = 0; i< names.length; i++){
-      domString += '<div class="col-md-6 col-lg-4 card-separation">'
-      domString += '<div class="card">';
-      domString += '  <div class="card-body">';
-      domString += `    <h5 class="card-title">${names[i].name}</h5>`;
-      domString += `    <p class="card-text">${names[i].house}</p>`;
-      domString += `<button type="button" class="btn btn-light expelButton" id="${names[i].id}">Expel</button>`
+      domString += '<div class="card-deck row">';
+      domString += '<div class="ml-3 mb-1 mt-1">';
+      domString += '  <div class="card text-center">';
+      domString += '    <div class="card-body >';
+      domString += `      <h5 class="card-title">${names[i].name}</h5>`;
+      domString += `      <p class="card-text">${names[i].house}</p>`;
+      domString += `      <button type="button" class="btn btn-light expelButton" id="${names[i].id}">Expel</button>`;
+      domString += '    </div>';
       domString += '  </div>';
       domString += '</div>';
       domString += '</div>';
@@ -55,11 +56,10 @@ document.getElementById('sortButton').addEventListener('click', sortStudent);
 
 const activateExpel = () => {
 let getButton = document.getElementsByClassName('expelButton');
-for( let i= 0; i < getButton.length; i++){
+for (let i= 0; i < getButton.length; i++){
   getButton[i].addEventListener('click', expelStudent);
   
-};
-
+}
 };
 const expelStudent = (e) =>{
 console.log(e);
@@ -68,7 +68,6 @@ for( let i= 0; i < arrayOfStudents.length; i++){
   if(arrayOfStudents[i].id === e.target.id){
       arrayOfStudents.splice(i, 1);   
   }
-
 }
 studentPrinter(arrayOfStudents);
 console.log(arrayOfStudents);
